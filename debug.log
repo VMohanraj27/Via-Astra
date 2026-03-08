@@ -1,3 +1,178 @@
-2026-03-07 03:44:51,437 - root - INFO - [configure_logging:52] - ================================================================================
-2026-03-07 03:44:51,437 - root - INFO - [configure_logging:53] - Application Logging Initialized
-2026-03-07 03:44:51,437 - root - INFO - [configure_logging:54] - ================================================================================
+2026-03-08 19:05:43,525 - root - INFO - [configure_logging:52] - ================================================================================
+2026-03-08 19:05:43,525 - root - INFO - [configure_logging:53] - Application Logging Initialized
+2026-03-08 19:05:43,525 - root - INFO - [configure_logging:54] - ================================================================================
+2026-03-08 19:05:43,771 - app.repositories.cache_repository - INFO - [_load_cache:42] - Loaded cache with 1 entries
+2026-03-08 19:05:43,771 - app.repositories.cache_repository - INFO - [__init__:31] - Cache initialized with 1 entries
+2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:26] - ================================================================================
+2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:27] - [CONTROLLER] /evaluate-company endpoint called
+2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:28] - [CONTROLLER] Company: Siemens, Role: Machine Learning Engineer
+2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:29] - ================================================================================
+2026-03-08 19:06:15,988 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-08 19:06:16,069 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-08 19:06:16,143 - git.util - DEBUG - [is_cygwin_git:494] - sys.platform='win32', git_executable='git'
+2026-03-08 19:06:16,143 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'check-ignore', 'C:\\Users\\mohan\\OneDrive\\Documents\\Personal Projects\\Company Assessment Framework\\Code'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-08 19:06:16,225 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'cat-file', '--batch-check'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=<valid stream>, shell=False, universal_newlines=False)
+2026-03-08 19:06:16,381 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): config.mlflow-telemetry.io:443
+2026-03-08 19:06:16,400 - app.api.routes - INFO - [evaluate_company:40] - [CONTROLLER] Step 1: Gathering research data...
+2026-03-08 19:06:16,400 - app.services.evaluation_service - INFO - [get_research:49] - EvaluationService: Getting research for Siemens
+2026-03-08 19:06:16,455 - app.repositories.research_repository - INFO - [get_research:38] - ResearchRepository: Fetching research for Siemens
+2026-03-08 19:06:16,455 - app.repositories.cache_repository - INFO - [get:156] - Searching cache for: Siemens
+2026-03-08 19:06:16,455 - app.repositories.cache_repository - INFO - [_exact_match:96] - Exact match found for: Siemens
+2026-03-08 19:06:16,455 - app.repositories.research_repository - INFO - [get_research:44] - ResearchRepository: Using cached results for Siemens
+2026-03-08 19:06:16,547 - app.services.evaluation_service - INFO - [get_research:60] - EvaluationService: Research complete - 8 metrics, 34 results
+2026-03-08 19:06:16,569 - app.api.routes - INFO - [evaluate_company:48] - [CONTROLLER] Step 2: Evaluating company...
+2026-03-08 19:06:16,569 - app.services.evaluation_service - INFO - [evaluate_company:85] - EvaluationService: Evaluating company Siemens
+2026-03-08 19:06:16,709 - app.services.llm_service - INFO - [__init__:37] - ModelSelector initialized with models: ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite']
+2026-03-08 19:06:16,709 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-3.1-flash-lite-preview
+2026-03-08 19:06:16,768 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-3.1-flash-lite-preview
+2026-03-08 19:06:16,768 - app.services.evaluation_service - INFO - [evaluate_company:112] - EvaluationService: Invoking LLM for company evaluation
+2026-03-08 19:06:16,795 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-08 19:06:16,800 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-08 19:06:16,839 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927567D0>
+2026-03-08 19:06:16,839 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000025792643F50> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-08 19:06:16,937 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927F6550>
+2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-08 19:06:17,086 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://config.mlflow-telemetry.io:443 "GET /3.10.1.json HTTP/1.1" 200 308
+2026-03-08 19:06:18,187 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-08 19:06:19,074 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-08 19:06:19,091 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-08 19:06:19,091 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:36:27 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=9866'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-08 19:06:26,972 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-08 19:06:26,991 - app.services.evaluation_service - INFO - [evaluate_company:116] - EvaluationService: Company evaluation complete
+2026-03-08 19:06:27,005 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-08 19:06:27,005 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-08 19:06:27,005 - app.api.routes - INFO - [evaluate_company:58] - [CONTROLLER] Step 3: Evaluating personal fit...
+2026-03-08 19:06:27,005 - app.services.evaluation_service - INFO - [evaluate_personal_fit:143] - EvaluationService: Evaluating personal fit for Siemens
+2026-03-08 19:06:27,128 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-3-flash-preview
+2026-03-08 19:06:27,185 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-3-flash-preview
+2026-03-08 19:06:27,185 - app.services.evaluation_service - INFO - [evaluate_personal_fit:172] - EvaluationService: Invoking LLM for personal fit
+2026-03-08 19:06:27,191 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-08 19:06:27,197 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-08 19:06:27,265 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927F6850>
+2026-03-08 19:06:27,265 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000257927C1C70> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-08 19:06:27,317 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002579278A990>
+2026-03-08 19:06:27,317 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:27,323 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-08 19:06:27,323 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-08 19:06:27,487 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-08 19:06:27,487 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:29,147 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-08 19:06:30,067 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:36:41 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=13257'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-08 19:06:40,686 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-08 19:06:40,686 - app.services.evaluation_service - INFO - [evaluate_personal_fit:175] - EvaluationService: Personal fit evaluation complete
+2026-03-08 19:06:40,735 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-08 19:06:40,735 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-08 19:06:40,735 - app.api.routes - INFO - [evaluate_company:69] - [CONTROLLER] Step 4: Generating resume suggestions...
+2026-03-08 19:06:40,735 - app.services.evaluation_service - INFO - [suggest_resume_improvements:200] - EvaluationService: Generating resume suggestions for Machine Learning Engineer
+2026-03-08 19:06:40,833 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-2.5-flash
+2026-03-08 19:06:40,899 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-2.5-flash
+2026-03-08 19:06:40,899 - app.services.evaluation_service - INFO - [suggest_resume_improvements:227] - EvaluationService: Invoking LLM for resume suggestions
+2026-03-08 19:06:40,899 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-08 19:06:40,907 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-08 19:06:40,998 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000025792863690>
+2026-03-08 19:06:40,998 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000257927C2060> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-08 19:06:41,061 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000025792863650>
+2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-08 19:06:41,063 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-08 19:06:50,215 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-08 19:06:51,446 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-08 19:07:00,455 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:37:01 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=19244'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-08 19:07:00,455 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-08 19:07:00,459 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-08 19:07:00,459 - app.services.evaluation_service - INFO - [suggest_resume_improvements:230] - EvaluationService: Resume suggestions complete
+2026-03-08 19:07:00,488 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-08 19:07:00,488 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-08 19:07:00,488 - app.api.routes - INFO - [evaluate_company:79] - [CONTROLLER] Step 5: Generating reports...
+2026-03-08 19:07:00,488 - app.utils.report_generator - INFO - [generate:301] - Generating markdown report for Siemens
+2026-03-08 19:07:00,493 - app.utils.report_generator - INFO - [generate:330] - Markdown report generated successfully
+2026-03-08 19:07:00,493 - app.utils.pdf_exporter - INFO - [export_markdown:278] - Exporting markdown: reports\Siemens_20260308_190700.md
+2026-03-08 19:07:00,496 - app.utils.pdf_exporter - INFO - [export_markdown:285] - Markdown export successful: reports\Siemens_20260308_190700.md
+2026-03-08 19:07:00,496 - app.utils.pdf_exporter - INFO - [export:222] - Exporting to PDF: reports\Siemens_20260308_190700.pdf
+2026-03-08 19:07:00,496 - app.utils.pdf_exporter - DEBUG - [_markdown_to_reportlab_elements:101] - Converting markdown to ReportLab elements
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Report Generated<b>: 2026-03-08 19:07:00, error: 
+paragraph text '<para><b>Report Generated<b>: 2026-03-08 19:07:00</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Company<b>: Siemens, error: 
+paragraph text '<para><b>Company<b>: Siemens</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Applied Position<b>: Machine Learning Engineer, error: 
+paragraph text '<para><b>Applied Position<b>: Machine Learning Engineer</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens is a world-leading industrial conglomerate with a robust business model spanning digital industries, smart infrastructure, mobility, and healthcare. Its diversified portfolio ensures high stability and long-term career viability., error: 
+paragraph text '<para><b>Description<b>: Siemens is a world-leading industrial conglomerate with a robust business model spanning digital industries, smart infrastructure, mobility, and healthcare. Its diversified portfolio ensures high stability and long-term career viability.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens has an aggressive and mature industrial AI strategy. They are integrating generative AI into core platforms like Teamcenter and Opcenter, leveraging large-scale industrial foundation models, and partnering with industry giants like NVIDIA and Microsoft to operationalize AI at the factory edge., error: 
+paragraph text '<para><b>Description<b>: Siemens has an aggressive and mature industrial AI strategy. They are integrating generative AI into core platforms like Teamcenter and Opcenter, leveraging large-scale industrial foundation models, and partnering with industry giants like NVIDIA and Microsoft to operationalize AI at the factory edge.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,521 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,523 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,523 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The technical stack is modern, utilizing Docker/Kubernetes-based microservices, MLOps tooling integrated with AWS/Azure, and the Xcelerator portfolio. It provides exposure to advanced digital twin and industrial IoT technologies., error: 
+paragraph text '<para><b>Description<b>: The technical stack is modern, utilizing Docker/Kubernetes-based microservices, MLOps tooling integrated with AWS/Azure, and the Xcelerator portfolio. It provides exposure to advanced digital twin and industrial IoT technologies.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,525 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,525 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,527 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens provides world-class professional development with massive annual investments. They offer structured graduate programs, certifications, a robust learning portal (My Learning World), and academic-industry partnerships., error: 
+paragraph text '<para><b>Description<b>: Siemens provides world-class professional development with massive annual investments. They offer structured graduate programs, certifications, a robust learning portal (My Learning World), and academic-industry partnerships.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The culture is widely recognized as collaborative, respectful, and supportive. Employees highlight a strong focus on compliance, diversity, and a 'growth mindset,' though some feedback indicates room for improvement in competitive incentive alignment., error: 
+paragraph text "<para><b>Description<b>: The culture is widely recognized as collaborative, respectful, and supportive. Employees highlight a strong focus on compliance, diversity, and a 'growth mindset,' though some feedback indicates room for improvement in competitive incentive alignment.</para>" caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens features a formal, well-implemented hybrid work model with significant flexibility. The focus is on outcomes rather than rigid office presence, supported by modern desk-booking and collaboration software., error: 
+paragraph text '<para><b>Description<b>: Siemens features a formal, well-implemented hybrid work model with significant flexibility. The focus is on outcomes rather than rigid office presence, supported by modern desk-booking and collaboration software.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
+paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The ML Engineer role at Siemens offers high impact, focusing on the end-to-end ML lifecycle, from model design and fine-tuning to deployment at the industrial edge and in the cloud, with close collaboration between research and product teams., error: 
+paragraph text '<para><b>Description<b>: The ML Engineer role at Siemens offers high impact, focusing on the end-to-end ML lifecycle, from model design and fine-tuning to deployment at the industrial edge and in the cloud, with close collaboration between research and product teams.</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
+paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Alignment Score<b>: 90/100, error: 
+paragraph text '<para><b>Alignment Score<b>: 90/100</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,545 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Position<b>: Machine Learning Engineer, error: 
+paragraph text '<para><b>Position<b>: Machine Learning Engineer</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,547 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description Summary<b>:, error: 
+paragraph text '<para><b>Description Summary<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,547 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Alignment Score<b>: 65/100, error: 
+paragraph text '<para><b>Alignment Score<b>: 65/100</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,553 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Missing Keywords/Skills in Current Resume<b>:, error: 
+paragraph text '<para><b>Missing Keywords/Skills in Current Resume<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,553 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>After Alignment Score<b>: 85/100, error: 
+paragraph text '<para><b>After Alignment Score<b>: 85/100</para>' caused exception Parse error: saw </para> instead of expected </b>
+2026-03-08 19:07:00,629 - app.utils.pdf_exporter - INFO - [export:255] - PDF export successful: reports\Siemens_20260308_190700.pdf
+2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:100] - [CONTROLLER] Reports generated:
+2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:101] -   - Markdown: reports\Siemens_20260308_190700.md
+2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:102] -   - PDF: reports\Siemens_20260308_190700.pdf
+2026-03-08 19:07:00,774 - app.api.routes - INFO - [evaluate_company:107] - ================================================================================
+2026-03-08 19:07:00,783 - app.api.routes - INFO - [evaluate_company:108] - [CONTROLLER] /evaluate-company completed successfully
+2026-03-08 19:07:00,783 - app.api.routes - INFO - [evaluate_company:109] - ================================================================================
+2026-03-08 19:11:39,387 - app.api.routes - INFO - [download_report:139] - [CONTROLLER] Downloading report: Siemens_20260308_190700.md
+2026-03-08 19:12:45,378 - app.api.routes - INFO - [download_report:139] - [CONTROLLER] Downloading report: Siemens_20260308_190700.pdf
