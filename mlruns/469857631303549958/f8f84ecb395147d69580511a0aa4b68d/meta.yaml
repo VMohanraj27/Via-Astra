@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mohan/OneDrive/Documents/Personal Projects/Company
+  Assessment Framework/Code/mlruns/469857631303549958/f8f84ecb395147d69580511a0aa4b68d/artifacts
+end_time: 1773585887995
+entry_point_name: ''
+experiment_id: '469857631303549958'
+lifecycle_stage: active
+run_id: f8f84ecb395147d69580511a0aa4b68d
+run_name: company_evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773585877687
+status: 3
+tags: []
+user_id: mohan

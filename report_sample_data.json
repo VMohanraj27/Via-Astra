@@ -1,0 +1,66 @@
+{
+
+"generated_date":"March 2026",
+"company_name":"EPAM Systems",
+"company_website":"epam.com",
+"industry":"Digital Engineering",
+"listing_status":"Public",
+"headquarters":"USA",
+"founded":"1993",
+"countries":"50+",
+"india_cities":"Hyderabad, Bangalore",
+
+"overall_score":82,
+
+"company_metrics":[
+{
+"name":"AI & Data Footprint",
+"score":4.5,
+"description":"Evaluates maturity of AI initiatives",
+"evidence":[
+"AI consulting practice",
+"GenAI hiring signals"
+],
+"implication":"Strong ML exposure",
+"risks":["Client project dependency"],
+"sources":["Company blog","Job postings"]
+}
+],
+
+"technology_stack":[
+{
+"name":"Python",
+"evidence":"ML engineering roles",
+"relevance":"Core ML dev"
+}
+],
+
+"resume_alignment_score":86,
+
+"resume_gaps":[
+"Distributed ML pipelines missing"
+],
+
+"resume_recommendations":[
+{
+"gap":"Lack of scale reference",
+"before":"Built ML models",
+"after":"Designed scalable ML pipelines",
+"impact":"Better keyword alignment"
+}
+],
+
+"interview_questions":{
+"business":["How does ML create business value?"],
+"ml":["Explain model drift"],
+"system_design":["Design ML inference pipeline"],
+"mlops":["How do you version models?"],
+"behavioral":["Tell me about production ML deployment"]
+},
+
+"recommendation":{
+"decision":"Strong Apply",
+"reason":"Good ML engineering alignment"
+}
+
+}

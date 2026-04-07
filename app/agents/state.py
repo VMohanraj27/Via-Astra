@@ -14,3 +14,6 @@ class AgentState(TypedDict):
     company_eval: dict
     personal_fit: dict
     resume_suggestions: dict
+    
+    recommendation: dict
+    final_report: dict

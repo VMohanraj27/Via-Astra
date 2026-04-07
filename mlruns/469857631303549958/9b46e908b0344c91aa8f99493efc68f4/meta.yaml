@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mohan/OneDrive/Documents/Personal Projects/Company
+  Assessment Framework/Code/mlruns/469857631303549958/9b46e908b0344c91aa8f99493efc68f4/artifacts
+end_time: 1773597162322
+entry_point_name: ''
+experiment_id: '469857631303549958'
+lifecycle_stage: active
+run_id: 9b46e908b0344c91aa8f99493efc68f4
+run_name: personal_fit_evaluation
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773597152318
+status: 3
+tags: []
+user_id: mohan

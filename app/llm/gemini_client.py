@@ -1,11 +1,16 @@
+import mlflow
+
 from langchain_google_genai import ChatGoogleGenerativeAI
 from app.config import GOOGLE_API_KEY, MODEL_NAME
 from app.models.output_models import (
     CompanyEvaluation,
     PersonalFit,
     ResumeSuggestions,
+    CompanyFitReport,
+    Recommendation,
 )
 
+mlflow.gemini.autolog()
 
 def get_llm():
     """Initialize base LLM instance."""
@@ -43,3 +48,13 @@ def get_personal_fit_llm():
 def get_resume_suggestions_llm():
     """Get LLM structured for ResumeSuggestions output."""
     return get_structured_llm(ResumeSuggestions)
+
+
+def get_company_fit_report_llm():
+    """Get LLM structured for CompanyFitReport output (complete report)."""
+    return get_structured_llm(CompanyFitReport)
+
+
+def get_recommendation_llm():
+    """Get LLM structured for Recommendation output (final decision)."""
+    return get_structured_llm(Recommendation)

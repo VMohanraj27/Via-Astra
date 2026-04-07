@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mohan/OneDrive/Documents/Personal Projects/Company
+  Assessment Framework/Code/mlruns/469857631303549958/481b6051742d44ad9783bafa52b7806f/artifacts
+end_time: 1773583965345
+entry_point_name: ''
+experiment_id: '469857631303549958'
+lifecycle_stage: active
+run_id: 481b6051742d44ad9783bafa52b7806f
+run_name: clean-eel-217
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773583486068
+status: 3
+tags: []
+user_id: mohan

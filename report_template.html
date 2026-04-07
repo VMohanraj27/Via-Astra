@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Company Fit Assessment Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Inter',sans-serif;
+margin:40px;
+color:#2c3e50;
+background:#ffffff;
+line-height:1.6;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #e5e7eb;
+padding-bottom:12px;
+margin-bottom:30px;
+}
+
+.title{
+font-size:32px;
+font-weight:600;
+}
+
+.date{
+font-size:14px;
+color:#6b7280;
+}
+
+.section-title{
+font-size:24px;
+margin-top:50px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.card{
+border:1px solid #e5e7eb;
+border-radius:8px;
+padding:14px;
+background:#f9fafb;
+}
+
+.card-title{
+font-size:13px;
+color:#6b7280;
+margin-bottom:4px;
+}
+
+.card-value{
+font-size:16px;
+font-weight:600;
+}
+
+.progress-bar{
+width:100%;
+background:#e5e7eb;
+height:18px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+background:#1f4e79;
+}
+
+.score-text{
+margin-top:6px;
+font-size:18px;
+font-weight:600;
+}
+
+.metric-block{
+border:1px solid #e5e7eb;
+border-radius:8px;
+padding:18px;
+margin-bottom:20px;
+background:#fafafa;
+}
+
+.metric-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+}
+
+.metric-name{
+font-weight:600;
+font-size:18px;
+}
+
+.metric-score{
+font-weight:600;
+color:#1f4e79;
+}
+
+.metric-table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+.metric-table th,
+.metric-table td{
+padding:12px;
+border-bottom:1px solid #e5e7eb;
+text-align:left;
+}
+
+.resume-block{
+border:1px solid #e5e7eb;
+border-radius:8px;
+padding:18px;
+margin-bottom:20px;
+background:#f9fafb;
+}
+
+.resume-before{
+background:#fff4f4;
+padding:10px;
+border-radius:6px;
+margin:8px 0;
+}
+
+.resume-after{
+background:#e8f7ee;
+padding:10px;
+border-radius:6px;
+margin:8px 0;
+}
+
+.question-section{
+margin-top:25px;
+}
+
+.recommendation{
+margin-top:20px;
+padding:20px;
+border-left:5px solid #1f4e79;
+background:#f4f6f8;
+}
+
+@media (max-width:900px){
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media (max-width:600px){
+
+.cards{
+grid-template-columns:1fr;
+}
+
+body{
+margin:20px;
+}
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<div class="title">📊 Company Fit Assessment Report</div>
+<div class="date">Generated: {{ generated_date }}</div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+
+<div class="section-title">Executive Summary</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-title">Company</div>
+<div class="card-value">{{ company_name }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Website</div>
+<div class="card-value">{{ company_website }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Industry</div>
+<div class="card-value">{{ industry }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Listing Status</div>
+<div class="card-value">{{ listing_status }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Headquarters</div>
+<div class="card-value">{{ headquarters }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Founded</div>
+<div class="card-value">{{ founded }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">Global Presence</div>
+<div class="card-value">{{ countries }}</div>
+</div>
+
+<div class="card">
+<div class="card-title">India Offices</div>
+<div class="card-value">{{ india_cities }}</div>
+</div>
+
+</div>
+
+<div class="section-title">Overall Fit Score</div>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:{{ overall_score }}%"></div>
+</div>
+
+<div class="score-text">{{ overall_score }}% Alignment</div>
+
+<!-- COMPANY EVALUATION -->
+
+<div class="section-title">Company Evaluation × Assessment</div>
+
+{% for metric in company_metrics %}
+
+<div class="metric-block">
+
+<div class="metric-header">
+
+<div class="metric-name">{{ metric.name }}</div>
+
+<div class="metric-score">{{ metric.score }} / 5</div>
+
+</div>
+
+<p>{{ metric.description }}</p>
+
+<strong>Evidence</strong>
+
+<ul>
+
+{% for e in metric.evidence %}
+
+<li>{{ e }}</li>
+
+{% endfor %}
+
+</ul>
+
+<strong>Implication</strong>
+
+<p>{{ metric.implication }}</p>
+
+<strong>Risk Factors</strong>
+
+<ul>
+
+{% for r in metric.risks %}
+
+<li>{{ r }}</li>
+
+{% endfor %}
+
+</ul>
+
+<strong>Sources</strong>
+
+<ul>
+
+{% for s in metric.sources %}
+
+<li>{{ s }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+{% endfor %}
+
+<!-- TECHNOLOGY INTELLIGENCE -->
+
+<div class="section-title">Technology Intelligence</div>
+
+<table class="metric-table">
+
+<tr>
+<th>Technology</th>
+<th>Evidence</th>
+<th>Relevance</th>
+</tr>
+
+{% for tech in technology_stack %}
+
+<tr>
+
+<td>{{ tech.name }}</td>
+
+<td>{{ tech.evidence }}</td>
+
+<td>{{ tech.relevance }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<!-- RESUME TAILORING -->
+
+<div class="section-title">Resume Tailoring Analysis</div>
+
+<div class="progress-bar">
+<div class="progress-fill" style="width:{{ resume_alignment_score }}%"></div>
+</div>
+
+<div class="score-text">
+
+Alignment Score: {{ resume_alignment_score }}%
+
+</div>
+
+<ul>
+
+{% for gap in resume_gaps %}
+
+<li>{{ gap }}</li>
+
+{% endfor %}
+
+</ul>
+
+<div class="section-title">Resume Improvement Recommendations</div>
+
+{% for rec in resume_recommendations %}
+
+<div class="resume-block">
+
+<strong>Gap</strong>
+
+<p>{{ rec.gap }}</p>
+
+<strong>Before</strong>
+
+<div class="resume-before">
+
+{{ rec.before }}
+
+</div>
+
+<strong>After</strong>
+
+<div class="resume-after">
+
+{{ rec.after }}
+
+</div>
+
+<strong>Impact</strong>
+
+<p>{{ rec.impact }}</p>
+
+</div>
+
+{% endfor %}
+
+<!-- INTERVIEW QUESTIONS -->
+
+<div class="section-title">Interview Preparation</div>
+
+<div class="question-section">
+
+<h3>Business Questions</h3>
+
+<ul>
+
+{% for q in interview_questions.business %}
+
+<li>{{ q }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="question-section">
+
+<h3>Machine Learning Questions</h3>
+
+<ul>
+
+{% for q in interview_questions.ml %}
+
+<li>{{ q }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="question-section">
+
+<h3>System Design Questions</h3>
+
+<ul>
+
+{% for q in interview_questions.system_design %}
+
+<li>{{ q }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="question-section">
+
+<h3>MLOps Questions</h3>
+
+<ul>
+
+{% for q in interview_questions.mlops %}
+
+<li>{{ q }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<div class="question-section">
+
+<h3>Behavioral Questions</h3>
+
+<ul>
+
+{% for q in interview_questions.behavioral %}
+
+<li>{{ q }}</li>
+
+{% endfor %}
+
+</ul>
+
+</div>
+
+<!-- FINAL RECOMMENDATION -->
+
+<div class="section-title">Final Recommendation</div>
+
+<div class="recommendation">
+
+<strong>{{ recommendation.decision }}</strong>
+
+<p>{{ recommendation.reason }}</p>
+
+</div>
+
+</body>
+</html>

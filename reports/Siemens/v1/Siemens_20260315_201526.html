@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<title>Company Fit Assessment Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Inter',sans-serif;
+margin:40px;
+color:#2c3e50;
+background:#ffffff;
+line-height:1.6;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #e5e7eb;
+padding-bottom:12px;
+margin-bottom:30px;
+}
+
+.title{
+font-size:34px;
+font-weight:600;
+}
+
+.date{
+font-size:14px;
+color:#6b7280;
+}
+
+.section-title{
+font-size:22px;
+margin-top:40px;
+margin-bottom:15px;
+font-weight:600;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+}
+
+.card{
+border:1px solid #e5e7eb;
+border-radius:8px;
+padding:14px;
+background:#f9fafb;
+transition:all 0.2s ease;
+}
+
+.card:hover{
+transform:translateY(-2px);
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.card-title{
+font-size:13px;
+color:#6b7280;
+margin-bottom:4px;
+}
+
+.card-value{
+font-size:16px;
+font-weight:600;
+}
+
+.score-section{
+margin-top:15px;
+}
+
+.progress-bar{
+width:100%;
+background:#e5e7eb;
+height:18px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+background:#1f4e79;
+width:88%;
+transition:width 0.8s ease;
+}
+
+.score-text{
+margin-top:6px;
+font-size:18px;
+font-weight:600;
+}
+
+.metric-table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+.metric-table th,
+.metric-table td{
+padding:12px;
+border-bottom:1px solid #e5e7eb;
+text-align:left;
+}
+
+.metric-table tr:hover{
+background:#f5f7fa;
+}
+
+.star{
+color:#f4b400;
+font-size:16px;
+}
+
+.label{
+font-size:12px;
+padding:4px 8px;
+border-radius:6px;
+font-weight:500;
+}
+
+.excellent{
+background:#e6f4ea;
+color:#137333;
+}
+
+.strong{
+background:#e8f0fe;
+color:#1a73e8;
+}
+
+.moderate{
+background:#fff4e5;
+color:#b06000;
+}
+
+.resume-progress{
+width:100%;
+background:#e5e7eb;
+height:16px;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.resume-fill{
+height:100%;
+background:#4f8bc9;
+width:88%;
+}
+
+ul{
+margin-top:10px;
+padding-left:18px;
+}
+
+li{
+margin-bottom:6px;
+}
+
+.insight-box{
+margin-top:15px;
+padding:16px;
+border-left:4px solid #1f4e79;
+background:#f4f6f8;
+font-size:14px;
+}
+
+/* Responsive behaviour */
+
+@media (max-width:1100px){
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.title{
+font-size:28px;
+}
+
+}
+
+@media (max-width:700px){
+
+body{
+margin:20px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:6px;
+}
+
+.title{
+font-size:24px;
+}
+
+.section-title{
+font-size:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="title">📊 Company Fit Assessment Report</div>
+
+<div class="date">
+Generated: March 2026
+</div>
+
+</div>
+
+
+
+<div class="section-title">📌 Executive Summary</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-title">🏢 Company</div>
+<div class="card-value"></div>
+</div>
+
+<div class="card">
+<div class="card-title">🌐 Website</div>
+<div class="card-value"></div>
+</div>
+
+<div class="card">
+<div class="card-title">🏭 Industry</div>
+<div class="card-value">Industrial Conglomerate (Technology, Energy, Infrastructure, Healthcare)</div>
+</div>
+
+<div class="card">
+<div class="card-title">📈 Listing Status</div>
+<div class="card-value">Public</div>
+</div>
+
+<div class="card">
+<div class="card-title">🌍 Headquarters</div>
+<div class="card-value">Munich, Germany</div>
+</div>
+
+<div class="card">
+<div class="card-title">📅 Founded</div>
+<div class="card-value">1847</div>
+</div>
+
+<div class="card">
+<div class="card-title">🌐 Global Presence</div>
+<div class="card-value">190+</div>
+</div>
+
+<div class="card">
+<div class="card-title">🇮🇳 India Offices</div>
+<div class="card-value">Bangalore, Pune, Mumbai, Gurgaon, Noida, Chennai, Kolkata</div>
+</div>
+
+</div>
+
+
+
+<div class="section-title">⭐ Overall Company Fit Score</div>
+
+<div class="score-section">
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+<div class="score-text">
+88% Alignment
+</div>
+
+</div>
+
+
+
+<div class="section-title">📊 Company Assessment Scorecard</div>
+
+<table class="metric-table">
+
+<tr>
+<th>Metric</th>
+<th>Rating</th>
+<th>Assessment</th>
+</tr>
+
+<tr>
+<td>AI & Data Footprint</td>
+<td class="star">★★★★★</td>
+<td><span class="label excellent">Excellent</span></td>
+</tr>
+
+<tr>
+<td>Technology Stack</td>
+<td class="star">★★★★☆</td>
+<td><span class="label strong">Strong</span></td>
+</tr>
+
+<tr>
+<td>Learning & Upskilling</td>
+<td class="star">★★★★★</td>
+<td><span class="label excellent">Excellent</span></td>
+</tr>
+
+<tr>
+<td>Company Culture</td>
+<td class="star">★★★★☆</td>
+<td><span class="label strong">Strong</span></td>
+</tr>
+
+<tr>
+<td>Role Alignment</td>
+<td class="star">★★★★☆</td>
+<td><span class="label strong">Strong</span></td>
+</tr>
+
+</table>
+
+
+
+<div class="section-title">🧠 Resume ↔ Job Description Alignment</div>
+
+<div class="resume-progress">
+<div class="resume-fill"></div>
+</div>
+
+<div class="score-text">
+Current Resume Alignment: 88%
+</div>
+
+<strong>Key Focus Areas</strong>
+
+<ul>
+<li>⚠ Add missing technologies mentioned in JD</li>
+<li>📊 Highlight quantifiable achievements</li>
+<li>🤝 Emphasize collaboration with data engineering teams</li>
+<li>🚀 Demonstrate scalable ML deployment experience</li>
+</ul>
+
+
+
+<div class="section-title">💡 Key Insight</div>
+
+<div class="insight-box">
+
+Your experience in machine learning engineering and GenAI systems shows strong alignment with the company’s technology strategy. The primary opportunity for improvement lies in emphasizing industrial domain applications and highlighting large-scale ML deployment experience relevant to the job description.
+
+</div>
+
+</body>
+</html>

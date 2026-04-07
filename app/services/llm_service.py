@@ -6,6 +6,8 @@ from app.models.output_models import (
     CompanyEvaluation,
     PersonalFit,
     ResumeSuggestions,
+    CompanyFitReport,
+    Recommendation,
 )
 
 logger = logging.getLogger(__name__)
@@ -148,16 +150,24 @@ class LLMService:
             return self.get_structured_llm(pydantic_schema, retry_count + 1)
     
     def get_company_eval_llm(self):
-        """Get LLM for company evaluation."""
+        """Get LLM for company evaluation (CompanyEvaluation output)."""
         return self.get_structured_llm(CompanyEvaluation)
     
     def get_personal_fit_llm(self):
-        """Get LLM for personal fit evaluation."""
+        """Get LLM for personal fit evaluation (PersonalFit output)."""
         return self.get_structured_llm(PersonalFit)
     
     def get_resume_suggestions_llm(self):
-        """Get LLM for resume suggestions."""
+        """Get LLM for resume suggestions (ResumeSuggestions output)."""
         return self.get_structured_llm(ResumeSuggestions)
+    
+    def get_company_fit_report_llm(self):
+        """Get LLM for complete company fit report (CompanyFitReport output)."""
+        return self.get_structured_llm(CompanyFitReport)
+    
+    def get_recommendation_llm(self):
+        """Get LLM for final recommendation (Recommendation output)."""
+        return self.get_structured_llm(Recommendation)
     
     def reset(self) -> None:
         """Reset model selector."""

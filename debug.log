@@ -1,178 +1,204 @@
-2026-03-08 19:05:43,525 - root - INFO - [configure_logging:52] - ================================================================================
-2026-03-08 19:05:43,525 - root - INFO - [configure_logging:53] - Application Logging Initialized
-2026-03-08 19:05:43,525 - root - INFO - [configure_logging:54] - ================================================================================
-2026-03-08 19:05:43,771 - app.repositories.cache_repository - INFO - [_load_cache:42] - Loaded cache with 1 entries
-2026-03-08 19:05:43,771 - app.repositories.cache_repository - INFO - [__init__:31] - Cache initialized with 1 entries
-2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:26] - ================================================================================
-2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:27] - [CONTROLLER] /evaluate-company endpoint called
-2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:28] - [CONTROLLER] Company: Siemens, Role: Machine Learning Engineer
-2026-03-08 19:06:13,582 - app.api.routes - INFO - [evaluate_company:29] - ================================================================================
-2026-03-08 19:06:15,988 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
-2026-03-08 19:06:16,069 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
-2026-03-08 19:06:16,143 - git.util - DEBUG - [is_cygwin_git:494] - sys.platform='win32', git_executable='git'
-2026-03-08 19:06:16,143 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'check-ignore', 'C:\\Users\\mohan\\OneDrive\\Documents\\Personal Projects\\Company Assessment Framework\\Code'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
-2026-03-08 19:06:16,225 - git.cmd - DEBUG - [execute:1270] - Popen(['git', 'cat-file', '--batch-check'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=<valid stream>, shell=False, universal_newlines=False)
-2026-03-08 19:06:16,381 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): config.mlflow-telemetry.io:443
-2026-03-08 19:06:16,400 - app.api.routes - INFO - [evaluate_company:40] - [CONTROLLER] Step 1: Gathering research data...
-2026-03-08 19:06:16,400 - app.services.evaluation_service - INFO - [get_research:49] - EvaluationService: Getting research for Siemens
-2026-03-08 19:06:16,455 - app.repositories.research_repository - INFO - [get_research:38] - ResearchRepository: Fetching research for Siemens
-2026-03-08 19:06:16,455 - app.repositories.cache_repository - INFO - [get:156] - Searching cache for: Siemens
-2026-03-08 19:06:16,455 - app.repositories.cache_repository - INFO - [_exact_match:96] - Exact match found for: Siemens
-2026-03-08 19:06:16,455 - app.repositories.research_repository - INFO - [get_research:44] - ResearchRepository: Using cached results for Siemens
-2026-03-08 19:06:16,547 - app.services.evaluation_service - INFO - [get_research:60] - EvaluationService: Research complete - 8 metrics, 34 results
-2026-03-08 19:06:16,569 - app.api.routes - INFO - [evaluate_company:48] - [CONTROLLER] Step 2: Evaluating company...
-2026-03-08 19:06:16,569 - app.services.evaluation_service - INFO - [evaluate_company:85] - EvaluationService: Evaluating company Siemens
-2026-03-08 19:06:16,709 - app.services.llm_service - INFO - [__init__:37] - ModelSelector initialized with models: ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite']
-2026-03-08 19:06:16,709 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-3.1-flash-lite-preview
-2026-03-08 19:06:16,768 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-3.1-flash-lite-preview
-2026-03-08 19:06:16,768 - app.services.evaluation_service - INFO - [evaluate_company:112] - EvaluationService: Invoking LLM for company evaluation
-2026-03-08 19:06:16,795 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
-2026-03-08 19:06:16,800 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
-2026-03-08 19:06:16,839 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927567D0>
-2026-03-08 19:06:16,839 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000025792643F50> server_hostname='generativelanguage.googleapis.com' timeout=None
-2026-03-08 19:06:16,937 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927F6550>
-2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
-2026-03-08 19:06:16,937 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
-2026-03-08 19:06:17,086 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://config.mlflow-telemetry.io:443 "GET /3.10.1.json HTTP/1.1" 200 308
-2026-03-08 19:06:18,187 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
-2026-03-08 19:06:19,074 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
-2026-03-08 19:06:19,091 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
-2026-03-08 19:06:19,091 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:36:27 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=9866'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-08 19:06:26,972 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
-2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
-2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
-2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
-2026-03-08 19:06:26,972 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
-2026-03-08 19:06:26,991 - app.services.evaluation_service - INFO - [evaluate_company:116] - EvaluationService: Company evaluation complete
-2026-03-08 19:06:27,005 - httpcore.connection - DEBUG - [trace:47] - close.started
-2026-03-08 19:06:27,005 - httpcore.connection - DEBUG - [trace:47] - close.complete
-2026-03-08 19:06:27,005 - app.api.routes - INFO - [evaluate_company:58] - [CONTROLLER] Step 3: Evaluating personal fit...
-2026-03-08 19:06:27,005 - app.services.evaluation_service - INFO - [evaluate_personal_fit:143] - EvaluationService: Evaluating personal fit for Siemens
-2026-03-08 19:06:27,128 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-3-flash-preview
-2026-03-08 19:06:27,185 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-3-flash-preview
-2026-03-08 19:06:27,185 - app.services.evaluation_service - INFO - [evaluate_personal_fit:172] - EvaluationService: Invoking LLM for personal fit
-2026-03-08 19:06:27,191 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
-2026-03-08 19:06:27,197 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
-2026-03-08 19:06:27,265 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000257927F6850>
-2026-03-08 19:06:27,265 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000257927C1C70> server_hostname='generativelanguage.googleapis.com' timeout=None
-2026-03-08 19:06:27,317 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002579278A990>
-2026-03-08 19:06:27,317 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:27,323 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
-2026-03-08 19:06:27,323 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
-2026-03-08 19:06:27,487 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
-2026-03-08 19:06:27,487 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:29,147 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
-2026-03-08 19:06:30,067 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
-2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:36:41 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=13257'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-08 19:06:40,686 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 200 OK"
-2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
-2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
-2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
-2026-03-08 19:06:40,686 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
-2026-03-08 19:06:40,686 - app.services.evaluation_service - INFO - [evaluate_personal_fit:175] - EvaluationService: Personal fit evaluation complete
-2026-03-08 19:06:40,735 - httpcore.connection - DEBUG - [trace:47] - close.started
-2026-03-08 19:06:40,735 - httpcore.connection - DEBUG - [trace:47] - close.complete
-2026-03-08 19:06:40,735 - app.api.routes - INFO - [evaluate_company:69] - [CONTROLLER] Step 4: Generating resume suggestions...
-2026-03-08 19:06:40,735 - app.services.evaluation_service - INFO - [suggest_resume_improvements:200] - EvaluationService: Generating resume suggestions for Machine Learning Engineer
-2026-03-08 19:06:40,833 - app.services.llm_service - INFO - [get_next_model:57] - ModelSelector: Using model gemini-2.5-flash
-2026-03-08 19:06:40,899 - app.services.llm_service - INFO - [get_structured_llm:133] - LLMService: Created structured LLM with model gemini-2.5-flash
-2026-03-08 19:06:40,899 - app.services.evaluation_service - INFO - [suggest_resume_improvements:227] - EvaluationService: Invoking LLM for resume suggestions
-2026-03-08 19:06:40,899 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
-2026-03-08 19:06:40,907 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
-2026-03-08 19:06:40,998 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000025792863690>
-2026-03-08 19:06:40,998 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000257927C2060> server_hostname='generativelanguage.googleapis.com' timeout=None
-2026-03-08 19:06:41,061 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000025792863650>
-2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
-2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
-2026-03-08 19:06:41,061 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
-2026-03-08 19:06:41,063 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
-2026-03-08 19:06:50,215 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
-2026-03-08 19:06:51,446 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
-2026-03-08 19:07:00,455 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 08 Mar 2026 13:37:01 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=19244'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-08 19:07:00,455 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
-2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
-2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
-2026-03-08 19:07:00,457 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
-2026-03-08 19:07:00,459 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
-2026-03-08 19:07:00,459 - app.services.evaluation_service - INFO - [suggest_resume_improvements:230] - EvaluationService: Resume suggestions complete
-2026-03-08 19:07:00,488 - httpcore.connection - DEBUG - [trace:47] - close.started
-2026-03-08 19:07:00,488 - httpcore.connection - DEBUG - [trace:47] - close.complete
-2026-03-08 19:07:00,488 - app.api.routes - INFO - [evaluate_company:79] - [CONTROLLER] Step 5: Generating reports...
-2026-03-08 19:07:00,488 - app.utils.report_generator - INFO - [generate:301] - Generating markdown report for Siemens
-2026-03-08 19:07:00,493 - app.utils.report_generator - INFO - [generate:330] - Markdown report generated successfully
-2026-03-08 19:07:00,493 - app.utils.pdf_exporter - INFO - [export_markdown:278] - Exporting markdown: reports\Siemens_20260308_190700.md
-2026-03-08 19:07:00,496 - app.utils.pdf_exporter - INFO - [export_markdown:285] - Markdown export successful: reports\Siemens_20260308_190700.md
-2026-03-08 19:07:00,496 - app.utils.pdf_exporter - INFO - [export:222] - Exporting to PDF: reports\Siemens_20260308_190700.pdf
-2026-03-08 19:07:00,496 - app.utils.pdf_exporter - DEBUG - [_markdown_to_reportlab_elements:101] - Converting markdown to ReportLab elements
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Report Generated<b>: 2026-03-08 19:07:00, error: 
-paragraph text '<para><b>Report Generated<b>: 2026-03-08 19:07:00</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Company<b>: Siemens, error: 
-paragraph text '<para><b>Company<b>: Siemens</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Applied Position<b>: Machine Learning Engineer, error: 
-paragraph text '<para><b>Applied Position<b>: Machine Learning Engineer</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens is a world-leading industrial conglomerate with a robust business model spanning digital industries, smart infrastructure, mobility, and healthcare. Its diversified portfolio ensures high stability and long-term career viability., error: 
-paragraph text '<para><b>Description<b>: Siemens is a world-leading industrial conglomerate with a robust business model spanning digital industries, smart infrastructure, mobility, and healthcare. Its diversified portfolio ensures high stability and long-term career viability.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,512 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens has an aggressive and mature industrial AI strategy. They are integrating generative AI into core platforms like Teamcenter and Opcenter, leveraging large-scale industrial foundation models, and partnering with industry giants like NVIDIA and Microsoft to operationalize AI at the factory edge., error: 
-paragraph text '<para><b>Description<b>: Siemens has an aggressive and mature industrial AI strategy. They are integrating generative AI into core platforms like Teamcenter and Opcenter, leveraging large-scale industrial foundation models, and partnering with industry giants like NVIDIA and Microsoft to operationalize AI at the factory edge.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,521 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,523 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,523 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The technical stack is modern, utilizing Docker/Kubernetes-based microservices, MLOps tooling integrated with AWS/Azure, and the Xcelerator portfolio. It provides exposure to advanced digital twin and industrial IoT technologies., error: 
-paragraph text '<para><b>Description<b>: The technical stack is modern, utilizing Docker/Kubernetes-based microservices, MLOps tooling integrated with AWS/Azure, and the Xcelerator portfolio. It provides exposure to advanced digital twin and industrial IoT technologies.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,525 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,525 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,527 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens provides world-class professional development with massive annual investments. They offer structured graduate programs, certifications, a robust learning portal (My Learning World), and academic-industry partnerships., error: 
-paragraph text '<para><b>Description<b>: Siemens provides world-class professional development with massive annual investments. They offer structured graduate programs, certifications, a robust learning portal (My Learning World), and academic-industry partnerships.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,529 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The culture is widely recognized as collaborative, respectful, and supportive. Employees highlight a strong focus on compliance, diversity, and a 'growth mindset,' though some feedback indicates room for improvement in competitive incentive alignment., error: 
-paragraph text "<para><b>Description<b>: The culture is widely recognized as collaborative, respectful, and supportive. Employees highlight a strong focus on compliance, diversity, and a 'growth mindset,' though some feedback indicates room for improvement in competitive incentive alignment.</para>" caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 8/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 8/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: Siemens features a formal, well-implemented hybrid work model with significant flexibility. The focus is on outcomes rather than rigid office presence, supported by modern desk-booking and collaboration software., error: 
-paragraph text '<para><b>Description<b>: Siemens features a formal, well-implemented hybrid work model with significant flexibility. The focus is on outcomes rather than rigid office presence, supported by modern desk-booking and collaboration software.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,532 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Rank<b>: High (Score: 9/10), error: 
-paragraph text '<para><b>Rank<b>: High (Score: 9/10)</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description<b>: The ML Engineer role at Siemens offers high impact, focusing on the end-to-end ML lifecycle, from model design and fine-tuning to deployment at the industrial edge and in the cloud, with close collaboration between research and product teams., error: 
-paragraph text '<para><b>Description<b>: The ML Engineer role at Siemens offers high impact, focusing on the end-to-end ML lifecycle, from model design and fine-tuning to deployment at the industrial edge and in the cloud, with close collaboration between research and product teams.</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Sources & Citations<b>:, error: 
-paragraph text '<para><b>Sources & Citations<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,537 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Alignment Score<b>: 90/100, error: 
-paragraph text '<para><b>Alignment Score<b>: 90/100</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,545 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Position<b>: Machine Learning Engineer, error: 
-paragraph text '<para><b>Position<b>: Machine Learning Engineer</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,547 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Description Summary<b>:, error: 
-paragraph text '<para><b>Description Summary<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,547 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Alignment Score<b>: 65/100, error: 
-paragraph text '<para><b>Alignment Score<b>: 65/100</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,553 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>Missing Keywords/Skills in Current Resume<b>:, error: 
-paragraph text '<para><b>Missing Keywords/Skills in Current Resume<b>:</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,553 - app.utils.pdf_exporter - WARNING - [_markdown_to_reportlab_elements:197] - Could not parse line: <b>After Alignment Score<b>: 85/100, error: 
-paragraph text '<para><b>After Alignment Score<b>: 85/100</para>' caused exception Parse error: saw </para> instead of expected </b>
-2026-03-08 19:07:00,629 - app.utils.pdf_exporter - INFO - [export:255] - PDF export successful: reports\Siemens_20260308_190700.pdf
-2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:100] - [CONTROLLER] Reports generated:
-2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:101] -   - Markdown: reports\Siemens_20260308_190700.md
-2026-03-08 19:07:00,636 - app.api.routes - INFO - [evaluate_company:102] -   - PDF: reports\Siemens_20260308_190700.pdf
-2026-03-08 19:07:00,774 - app.api.routes - INFO - [evaluate_company:107] - ================================================================================
-2026-03-08 19:07:00,783 - app.api.routes - INFO - [evaluate_company:108] - [CONTROLLER] /evaluate-company completed successfully
-2026-03-08 19:07:00,783 - app.api.routes - INFO - [evaluate_company:109] - ================================================================================
-2026-03-08 19:11:39,387 - app.api.routes - INFO - [download_report:139] - [CONTROLLER] Downloading report: Siemens_20260308_190700.md
-2026-03-08 19:12:45,378 - app.api.routes - INFO - [download_report:139] - [CONTROLLER] Downloading report: Siemens_20260308_190700.pdf
+2026-03-15 23:27:21,395 - root - INFO - [configure_logging:52] - ================================================================================
+2026-03-15 23:27:21,395 - root - INFO - [configure_logging:53] - Application Logging Initialized
+2026-03-15 23:27:21,395 - root - INFO - [configure_logging:54] - ================================================================================
+2026-03-15 23:27:21,545 - app.repositories.cache_repository - INFO - [_load_cache:42] - Loaded cache with 2 entries
+2026-03-15 23:27:21,545 - app.repositories.cache_repository - INFO - [__init__:31] - Cache initialized with 2 entries
+2026-03-15 23:27:21,739 - urllib3.connectionpool - DEBUG - [_new_conn:241] - Starting new HTTP connection (1): 127.0.0.1:5000
+2026-03-15 23:27:21,748 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/experiments/get-by-name?experiment_name=company-fit-agent HTTP/1.1" 200 356
+2026-03-15 23:27:35,434 - app.api.routes - INFO - [evaluate_company:30] - ================================================================================
+2026-03-15 23:27:35,435 - app.api.routes - INFO - [evaluate_company:31] - [CONTROLLER] /evaluate-company endpoint called
+2026-03-15 23:27:35,436 - app.api.routes - INFO - [evaluate_company:32] - [CONTROLLER] Company: expedia group, Role: Machine Learning Engineer
+2026-03-15 23:27:35,436 - app.api.routes - INFO - [evaluate_company:33] - ================================================================================
+2026-03-15 23:27:35,665 - git.cmd - DEBUG - [execute:1253] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-15 23:27:35,817 - git.cmd - DEBUG - [execute:1253] - Popen(['git', 'version'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-15 23:27:36,137 - git.cmd - DEBUG - [execute:1253] - Popen(['git', 'check-ignore', 'C:\\Users\\mohan\\OneDrive\\Documents\\Personal Projects\\Company Assessment Framework\\Code'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=None, shell=False, universal_newlines=False)
+2026-03-15 23:27:36,460 - git.cmd - DEBUG - [execute:1253] - Popen(['git', 'cat-file', '--batch-check'], cwd=C:\Users\mohan\OneDrive\Documents\Personal Projects\Company Assessment Framework\Code, stdin=<valid stream>, shell=False, universal_newlines=False)
+2026-03-15 23:27:36,671 - urllib3.connectionpool - DEBUG - [_get_conn:289] - Resetting dropped connection: 127.0.0.1
+2026-03-15 23:27:36,776 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1111
+2026-03-15 23:27:36,780 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): config.mlflow-telemetry.io:443
+2026-03-15 23:27:36,836 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-batch HTTP/1.1" 200 2
+2026-03-15 23:27:36,836 - app.api.routes - INFO - [evaluate_company:44] - [CONTROLLER] Initializing LangGraph workflow...
+2026-03-15 23:27:36,909 - app.api.routes - INFO - [evaluate_company:62] - Workflow is build successfully!!
+2026-03-15 23:27:36,994 - app.agents.nodes - INFO - [research_node:31] - === [RESEARCH NODE] Starting ===
+2026-03-15 23:27:36,995 - app.agents.nodes - INFO - [research_node:32] - Company: expedia group, Role: Machine Learning Engineer, Salary: 20-25 LPA
+2026-03-15 23:27:36,995 - app.services.evaluation_service - INFO - [get_research:60] - EvaluationService: Getting research for expedia group
+2026-03-15 23:27:37,169 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1193
+2026-03-15 23:27:37,172 - app.repositories.research_repository - INFO - [get_research:38] - ResearchRepository: Fetching research for expedia group
+2026-03-15 23:27:37,172 - app.repositories.cache_repository - INFO - [get:156] - Searching cache for: expedia group
+2026-03-15 23:27:37,172 - app.repositories.cache_repository - INFO - [_exact_match:96] - Exact match found for: expedia group
+2026-03-15 23:27:37,172 - app.repositories.research_repository - INFO - [get_research:44] - ResearchRepository: Using cached results for expedia group
+2026-03-15 23:27:37,238 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:27:37,252 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://config.mlflow-telemetry.io:443 "GET /3.10.1.json HTTP/1.1" 200 308
+2026-03-15 23:27:37,335 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:27:37,337 - app.services.evaluation_service - INFO - [get_research:71] - EvaluationService: Research complete - 8 metrics, 34 results
+2026-03-15 23:27:37,464 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=7395e160f45c40eebc97861d96ff3562&run_id=7395e160f45c40eebc97861d96ff3562 HTTP/1.1" 200 1629
+2026-03-15 23:27:37,500 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 528
+2026-03-15 23:27:37,503 - app.agents.nodes - INFO - [research_node:37] - === [RESEARCH NODE] Completed ===
+2026-03-15 23:27:37,505 - app.agents.nodes - INFO - [company_eval_node:53] - === [COMPANY EVAL NODE] Starting ===
+2026-03-15 23:27:37,506 - app.agents.nodes - INFO - [company_eval_node:55] - Company: expedia group
+2026-03-15 23:27:37,506 - app.services.evaluation_service - INFO - [evaluate_company:97] - EvaluationService: Evaluating company expedia group
+2026-03-15 23:27:37,677 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1213
+2026-03-15 23:27:37,710 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:27:37,744 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:27:37,759 - app.services.llm_service - INFO - [__init__:39] - ModelSelector initialized with models: ['gemini-3.1-flash-lite-preview', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite']
+2026-03-15 23:27:37,760 - app.services.llm_service - INFO - [get_next_model:59] - ModelSelector: Using model gemini-3.1-flash-lite-preview
+2026-03-15 23:27:37,830 - app.services.llm_service - INFO - [get_structured_llm:135] - LLMService: Created structured LLM with model gemini-3.1-flash-lite-preview
+2026-03-15 23:27:37,830 - app.services.evaluation_service - INFO - [evaluate_company:124] - EvaluationService: Invoking LLM for company evaluation
+2026-03-15 23:27:37,837 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-15 23:27:37,845 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-15 23:27:38,031 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B076ABD0>
+2026-03-15 23:27:38,037 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000207B0736180> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-15 23:27:38,114 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B07A6C50>
+2026-03-15 23:27:38,114 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:38,114 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-15 23:27:38,114 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-15 23:27:38,287 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-15 23:27:38,287 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:38,309 - urllib3.connectionpool - DEBUG - [_new_conn:241] - Starting new HTTP connection (1): 127.0.0.1:5000
+2026-03-15 23:27:38,331 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/3.0/mlflow/server-info HTTP/1.1" 200 54
+2026-03-15 23:27:38,338 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-15 23:27:39,304 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-15 23:27:45,052 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 15 Mar 2026 17:57:45 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=6901'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-15 23:27:45,053 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-15 23:27:45,054 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-15 23:27:45,056 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-15 23:27:45,056 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-15 23:27:45,056 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-15 23:27:45,080 - urllib3.connectionpool - DEBUG - [_get_conn:289] - Resetting dropped connection: 127.0.0.1
+2026-03-15 23:27:45,110 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:27:45,112 - app.services.evaluation_service - INFO - [evaluate_company:129] - EvaluationService: Company evaluation complete
+2026-03-15 23:27:45,189 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=192d9d1bcd9f45e787620edfd786dbc1&run_id=192d9d1bcd9f45e787620edfd786dbc1 HTTP/1.1" 200 1648
+2026-03-15 23:27:45,216 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 538
+2026-03-15 23:27:45,218 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-15 23:27:45,218 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-15 23:27:45,219 - app.agents.nodes - INFO - [company_eval_node:66] - === [COMPANY EVAL NODE] Completed ===
+2026-03-15 23:27:45,247 - app.agents.nodes - INFO - [personal_fit_node:82] - === [PERSONAL FIT NODE] Starting ===
+2026-03-15 23:27:45,247 - app.services.evaluation_service - INFO - [evaluate_personal_fit:157] - EvaluationService: Evaluating personal fit for expedia group
+2026-03-15 23:27:45,438 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1223
+2026-03-15 23:27:45,463 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:27:45,467 - app.services.llm_service - INFO - [get_next_model:59] - ModelSelector: Using model gemini-3-flash-preview
+2026-03-15 23:27:45,523 - app.services.llm_service - INFO - [get_structured_llm:135] - LLMService: Created structured LLM with model gemini-3-flash-preview
+2026-03-15 23:27:45,523 - app.services.evaluation_service - INFO - [evaluate_personal_fit:186] - EvaluationService: Invoking LLM for personal fit
+2026-03-15 23:27:45,523 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-15 23:27:45,533 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-15 23:27:45,588 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B07F9650>
+2026-03-15 23:27:45,589 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000207B036DC70> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-15 23:27:45,661 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B07F95D0>
+2026-03-15 23:27:45,661 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:45,663 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-15 23:27:45,663 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-15 23:27:45,838 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-15 23:27:45,838 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:48,361 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-15 23:27:49,754 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-15 23:27:57,940 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 15 Mar 2026 17:57:58 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=12236'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-15 23:27:57,940 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-15 23:27:57,940 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-15 23:27:57,940 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-15 23:27:57,940 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-15 23:27:57,940 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-15 23:27:57,940 - app.services.evaluation_service - INFO - [evaluate_personal_fit:190] - EvaluationService: Personal fit evaluation complete
+2026-03-15 23:27:57,966 - urllib3.connectionpool - DEBUG - [_get_conn:289] - Resetting dropped connection: 127.0.0.1
+2026-03-15 23:27:57,994 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=82a5fec54fdd4ad5b733837552760d4e&run_id=82a5fec54fdd4ad5b733837552760d4e HTTP/1.1" 200 1333
+2026-03-15 23:27:58,028 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 543
+2026-03-15 23:27:58,030 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-15 23:27:58,031 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-15 23:27:58,032 - app.agents.nodes - INFO - [personal_fit_node:94] - === [PERSONAL FIT NODE] Completed ===
+2026-03-15 23:27:58,045 - app.agents.nodes - INFO - [resume_node:110] - === [RESUME OPT NODE] Starting ===
+2026-03-15 23:27:58,046 - app.services.evaluation_service - INFO - [suggest_resume_improvements:216] - EvaluationService: Generating resume suggestions for Machine Learning Engineer
+2026-03-15 23:27:58,263 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1215
+2026-03-15 23:27:58,311 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:27:58,355 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:27:58,357 - app.services.llm_service - INFO - [get_next_model:59] - ModelSelector: Using model gemini-2.5-flash
+2026-03-15 23:27:58,434 - app.services.llm_service - INFO - [get_structured_llm:135] - LLMService: Created structured LLM with model gemini-2.5-flash
+2026-03-15 23:27:58,435 - app.services.evaluation_service - INFO - [suggest_resume_improvements:243] - EvaluationService: Invoking LLM for resume suggestions
+2026-03-15 23:27:58,437 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-15 23:27:58,440 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-15 23:27:58,469 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B0808650>
+2026-03-15 23:27:58,469 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000207B0737920> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-15 23:27:58,541 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B0808610>
+2026-03-15 23:27:58,541 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:58,541 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-15 23:27:58,541 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-15 23:27:58,541 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-15 23:27:58,541 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-15 23:27:58,843 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-15 23:27:59,700 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-15 23:28:17,599 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 15 Mar 2026 17:58:17 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=18951'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-15 23:28:17,599 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent "HTTP/1.1 200 OK"
+2026-03-15 23:28:17,599 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-15 23:28:17,599 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-15 23:28:17,601 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-15 23:28:17,601 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-15 23:28:17,601 - app.services.evaluation_service - INFO - [suggest_resume_improvements:247] - EvaluationService: Resume suggestions complete
+2026-03-15 23:28:17,626 - urllib3.connectionpool - DEBUG - [_get_conn:289] - Resetting dropped connection: 127.0.0.1
+2026-03-15 23:28:17,667 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=d9acdc8e2ba54cb888ec171300dde49b&run_id=d9acdc8e2ba54cb888ec171300dde49b HTTP/1.1" 200 1418
+2026-03-15 23:28:17,720 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 539
+2026-03-15 23:28:17,721 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-15 23:28:17,721 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-15 23:28:17,721 - app.agents.nodes - INFO - [resume_node:121] - === [RESUME OPT NODE] Completed ===
+2026-03-15 23:28:17,727 - app.agents.nodes - INFO - [recommendation_node:138] - === [RECOMMENDATION NODE] Starting ===
+2026-03-15 23:28:17,727 - app.services.evaluation_service - INFO - [generate_recommendation:277] - EvaluationService: Generating recommendation for expedia group
+2026-03-15 23:28:17,896 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/create HTTP/1.1" 200 1227
+2026-03-15 23:28:17,931 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:28:17,959 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-parameter HTTP/1.1" 200 2
+2026-03-15 23:28:18,131 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:18,162 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:18,189 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:18,194 - app.services.llm_service - INFO - [get_next_model:59] - ModelSelector: Using model gemini-2.5-flash-lite
+2026-03-15 23:28:18,244 - app.services.llm_service - INFO - [get_structured_llm:135] - LLMService: Created structured LLM with model gemini-2.5-flash-lite
+2026-03-15 23:28:18,244 - app.services.evaluation_service - INFO - [generate_recommendation:307] - EvaluationService: Invoking LLM for recommendation
+2026-03-15 23:28:18,258 - google_genai.models - INFO - [generate_content:5701] - AFC is enabled with max remote calls: 10.
+2026-03-15 23:28:18,262 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-15 23:28:18,338 - httpcore.connection - DEBUG - [trace:47] - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B0808DD0>
+2026-03-15 23:28:18,338 - httpcore.connection - DEBUG - [trace:47] - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000207B0736600> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-15 23:28:18,391 - httpcore.connection - DEBUG - [trace:47] - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000207B080A310>
+2026-03-15 23:28:18,391 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.started request=<Request [b'POST']>
+2026-03-15 23:28:18,391 - httpcore.http11 - DEBUG - [trace:47] - send_request_headers.complete
+2026-03-15 23:28:18,391 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.started request=<Request [b'POST']>
+2026-03-15 23:28:18,391 - httpcore.http11 - DEBUG - [trace:47] - send_request_body.complete
+2026-03-15 23:28:18,391 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.started request=<Request [b'POST']>
+2026-03-15 23:28:19,890 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-15 23:28:20,822 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30
+2026-03-15 23:28:21,780 - httpcore.http11 - DEBUG - [trace:47] - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Sun, 15 Mar 2026 17:58:22 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=3309'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-15 23:28:21,780 - httpx - INFO - [_send_single_request:1025] - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-15 23:28:21,780 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.started request=<Request [b'POST']>
+2026-03-15 23:28:21,796 - httpcore.http11 - DEBUG - [trace:47] - receive_response_body.complete
+2026-03-15 23:28:21,796 - httpcore.http11 - DEBUG - [trace:47] - response_closed.started
+2026-03-15 23:28:21,796 - httpcore.http11 - DEBUG - [trace:47] - response_closed.complete
+2026-03-15 23:28:21,796 - app.services.evaluation_service - INFO - [generate_recommendation:311] - EvaluationService: Recommendation generation complete
+2026-03-15 23:28:21,905 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=4baa815c80b64a4daa571597af74b423&run_id=4baa815c80b64a4daa571597af74b423 HTTP/1.1" 200 2043
+2026-03-15 23:28:21,934 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 545
+2026-03-15 23:28:21,936 - httpcore.connection - DEBUG - [trace:47] - close.started
+2026-03-15 23:28:21,938 - httpcore.connection - DEBUG - [trace:47] - close.complete
+2026-03-15 23:28:21,939 - app.agents.nodes - INFO - [recommendation_node:163] - === [RECOMMENDATION NODE] Completed ===
+2026-03-15 23:28:21,950 - app.agents.nodes - INFO - [report_generation_node:179] - === [REPORT GENERATION NODE] Starting ===
+2026-03-15 23:28:21,954 - app.services.evaluation_service - INFO - [generate_final_report:338] - EvaluationService: Generating final report for expedia group
+2026-03-15 23:28:21,956 - app.services.evaluation_service - INFO - [generate_final_report:348] - EvaluationService: Final report generated successfully
+2026-03-15 23:28:21,956 - app.agents.nodes - INFO - [report_generation_node:208] - === [REPORT GENERATION NODE] Completed ===
+2026-03-15 23:28:21,957 - app.api.routes - INFO - [evaluate_company:66] - [CONTROLLER] Extracting results from workflow...
+2026-03-15 23:28:21,958 - app.api.routes - INFO - [evaluate_company:82] - [CONTROLLER] Step 2: Generating report files...
+2026-03-15 23:28:21,963 - app.api.routes - INFO - [evaluate_company:97] - [CONTROLLER] Created version folder: reports\expedia group\v3
+2026-03-15 23:28:21,964 - app.api.routes - INFO - [evaluate_company:98] - [CONTROLLER] Version: v3
+2026-03-15 23:28:21,965 - app.utils.report_generator - INFO - [generate:412] - Generating markdown report for expedia group
+2026-03-15 23:28:21,967 - app.utils.report_generator - INFO - [generate:441] - Markdown report generated successfully
+2026-03-15 23:28:21,970 - app.utils.report_generator - INFO - [generate:471] - Generating HTML report from template: report_template.html
+2026-03-15 23:28:21,971 - app.utils.report_generator - INFO - [generate:472] - Generating the HTML reports from data
+2026-03-15 23:28:22,024 - app.utils.report_generator - INFO - [generate:501] - HTML report generated successfully (21757 characters)
+2026-03-15 23:28:22,025 - app.api.routes - INFO - [evaluate_company:118] - [CONTROLLER] Step 3: Exporting files...
+2026-03-15 23:28:22,032 - app.utils.report_generator - INFO - [export_html:608] - Exporting HTML report to: reports\expedia group\v3\expedia group_20260315_232821.html
+2026-03-15 23:28:22,036 - app.utils.report_generator - INFO - [export_html:614] - HTML report exported successfully (22781 bytes)
+2026-03-15 23:28:22,037 - app.api.routes - INFO - [evaluate_company:131] - [CONTROLLER] Reports generated:
+2026-03-15 23:28:22,038 - app.api.routes - INFO - [evaluate_company:132] -   - HTML: reports\expedia group\v3\expedia group_20260315_232821.html
+2026-03-15 23:28:22,038 - app.api.routes - INFO - [evaluate_company:133] -   - Markdown: reports\expedia group\v3\expedia group_20260315_232821.md
+2026-03-15 23:28:22,099 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=8d9b57ed115a4f699b2e80d65c926578&run_id=8d9b57ed115a4f699b2e80d65c926578 HTTP/1.1" 200 1406
+2026-03-15 23:28:22,205 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:22,230 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:22,256 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/log-metric HTTP/1.1" 200 2
+2026-03-15 23:28:22,256 - app.api.routes - INFO - [evaluate_company:144] - ================================================================================
+2026-03-15 23:28:22,261 - app.api.routes - INFO - [evaluate_company:145] - [CONTROLLER] /evaluate-company completed successfully (LangGraph workflow)
+2026-03-15 23:28:22,261 - app.api.routes - INFO - [evaluate_company:146] - ================================================================================
+2026-03-15 23:28:22,368 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "GET /api/2.0/mlflow/runs/get?run_uuid=8d9b57ed115a4f699b2e80d65c926578&run_id=8d9b57ed115a4f699b2e80d65c926578 HTTP/1.1" 200 2029
+2026-03-15 23:28:22,404 - urllib3.connectionpool - DEBUG - [_make_request:544] - http://127.0.0.1:5000 "POST /api/2.0/mlflow/runs/update HTTP/1.1" 200 544
+2026-03-15 23:28:29,892 - urllib3.connectionpool - DEBUG - [_new_conn:1049] - Starting new HTTPS connection (1): api.mlflow-telemetry.io:443
+2026-03-15 23:28:30,969 - urllib3.connectionpool - DEBUG - [_make_request:544] - https://api.mlflow-telemetry.io:443 "POST /log HTTP/1.1" 200 30

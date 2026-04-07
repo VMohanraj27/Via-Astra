@@ -1,0 +1,2 @@
+No synchronous function provided to "research".
+Either initialize with a synchronous function or invoke via the async API (ainvoke, astream, etc.)

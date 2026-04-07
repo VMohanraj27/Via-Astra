@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mohan/OneDrive/Documents/Personal Projects/Company
+  Assessment Framework/Code/mlruns/469857631303549958/c50bc6332102402184fc9dceb3a05a02/artifacts
+end_time: 1773587987293
+entry_point_name: ''
+experiment_id: '469857631303549958'
+lifecycle_stage: active
+run_id: c50bc6332102402184fc9dceb3a05a02
+run_name: assessment_Siemens
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773587935761
+status: 3
+tags: []
+user_id: mohan

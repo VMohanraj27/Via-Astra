@@ -1,6 +1,8 @@
 import logging
 from typing import Dict, Any, List
 from datetime import datetime
+from pathlib import Path
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 logger = logging.getLogger(__name__)
 
@@ -30,6 +32,7 @@ class MarkdownGenerator:
         """
         company_name = company_eval.get("company_name", "Unknown")
         role_applied = company_eval.get("role_applied", "Unknown")
+        overall_score = company_eval.get("overall_score", 0)
         
         md = f"""# Section I: Company Assessment
 
@@ -37,6 +40,7 @@ class MarkdownGenerator:
 - **Company Name**: {company_name}
 - **Website**: [{company_url}]({company_url})
 - **Job Role Applied**: {role_applied}
+- **Overall Score**: {overall_score}/100
 
 ---
 
@@ -44,36 +48,60 @@ class MarkdownGenerator:
 
 """
         
-        evaluation_metrics = company_eval.get("evaluation_metrics", [])
+        # Support both old and new field names
+        company_metrics = company_eval.get("company_metrics", company_eval.get("evaluation_metrics", []))
         
-        for i, metric in enumerate(evaluation_metrics, 1):
-            metric_name = metric.get("metric_name", "Unknown Metric")
+        for i, metric in enumerate(company_metrics, 1):
+            # Support both old (metric_name, reasoning, citations) and new (name, description, evidence, implication, risks, sources) field names
+            metric_name = metric.get("name", metric.get("metric_name", "Unknown Metric"))
             score = metric.get("score", 0)
-            reasoning = metric.get("reasoning", "No reasoning provided")
-            citations = metric.get("citations", [])
+            description = metric.get("description", metric.get("reasoning", "No description provided"))
+            evidence = metric.get("evidence", [])
+            implication = metric.get("implication", "")
+            risks = metric.get("risks", [])
+            sources = metric.get("sources", metric.get("citations", []))
             
-            # Determine rank based on score
-            if score >= 8:
-                rank = "High"
-            elif score >= 5:
-                rank = "Medium"
+            # Determine rank based on score (adjust for 1-5 or 1-10 scale)
+            if score >= 4:
+                rank = "High" if score <= 5 else "Excellent"
+            elif score >= 3:
+                rank = "Medium" if score <= 5 else "Good"
             else:
                 rank = "Low"
             
             md += f"""### {i}. {metric_name}
 
-**Rank**: {rank} (Score: {score}/10)
+**Score**: {score}/5
 
-**Description**: {reasoning}
+**Description**: {description}
 
 """
             
-            if citations:
-                md += "**Sources & Citations**:\n"
-                for citation in citations:
-                    source_title = citation.get("source_title", "Unknown")
-                    source_link = citation.get("source_link", "#")
-                    md += f"- [{source_title}]({source_link})\n"
+            if evidence:
+                md += "**Evidence**:\n"
+                for item in evidence:
+                    md += f"- {item}\n"
+                md += "\n"
+            
+            if implication:
+                md += f"**Career Implication**: {implication}\n\n"
+            
+            if risks:
+                md += "**Risk Factors**:\n"
+                for risk in risks:
+                    md += f"- {risk}\n"
+                md += "\n"
+            
+            if sources:
+                md += "**Sources & References**:\n"
+                for source in sources:
+                    if isinstance(source, dict):
+                        source_title = source.get("source_title", "Unknown")
+                        source_link = source.get("source_link", "#")
+                        md += f"- [{source_title}]({source_link})\n"
+                    else:
+                        # Handle string sources
+                        md += f"- {source}\n"
                 md += "\n"
         
         return md
@@ -175,12 +203,21 @@ Areas where further development is recommended:
         Returns:
             Markdown for resume alignment section
         """
+        # Support both old and new field names
+        resume_alignment_score = resume_suggestions.get(
+            "resume_alignment_score", 
+            resume_suggestions.get("alignment_score", 65)
+        )
+        resume_gaps = resume_suggestions.get("resume_gaps", [])
+        resume_recommendations = resume_suggestions.get("resume_recommendations", [])
+        
+        # Fallback to old field names if new ones not available
         missing_keywords = resume_suggestions.get("missing_keywords", [])
         improved_bullets = resume_suggestions.get("improved_bullets", [])
         
         md = f"""---
 
-# Section III: Resume Alignment
+# Section III: Resume Alignment & Interview Prep
 
 ## Job Role & Description
 
@@ -191,36 +228,110 @@ Areas where further development is recommended:
 
 ---
 
-## Current Resume Alignment Score
+## Resume Alignment Score
 
-**Alignment Score**: 65/100
+**Alignment Score**: {resume_alignment_score}/100
 
-Your resume currently has moderate alignment with the job description. Following the recommendations below can significantly improve your chances.
-
----
-
-## Areas Tailored to Job Description
-
-The following areas in your resume should be emphasized:
-
-- Technical skills matching the JD requirements
-- Relevant project experience
-- Industry-specific certifications
-- Quantifiable achievements in similar roles
+Your resume has {'strong' if resume_alignment_score >= 75 else 'moderate' if resume_alignment_score >= 60 else 'limited'} alignment with the job description. Following the recommendations below can significantly improve your chances.
 
 ---
 
-## Identified Gaps & Areas for Improvement
+## Identified Gaps
 
-### Gap Analysis
+The following gaps have been identified between your resume and the job requirements:
 
 """
         
-        if missing_keywords:
-            md += "**Missing Keywords/Skills in Current Resume**:\n"
+        if resume_gaps:
+            for gap in resume_gaps:
+                md += f"- {gap}\n"
+        elif missing_keywords:
+            md += "**Missing Keywords/Skills**:\n"
             for keyword in missing_keywords:
                 md += f"- {keyword}\n"
-            md += "\n"
+        else:
+            md += "- No significant gaps identified\n"
+        
+        md += """
+
+---
+
+## Resume Improvement Recommendations
+
+"""
+        
+        if resume_recommendations:
+            for i, rec in enumerate(resume_recommendations, 1):
+                gap = rec.get("gap", "")
+                before = rec.get("before", "")
+                after = rec.get("after", "")
+                impact = rec.get("impact", "")
+                
+                md += f"""### Recommendation {i}: {gap}
+
+**Current (Before)**:
+```
+{before}
+```
+
+**Improved (After)**:
+```
+{after}
+```
+
+**Impact**: {impact}
+
+"""
+        elif improved_bullets:
+            md += "**Improved Resume Bullet Points**:\n"
+            for i, bullet in enumerate(improved_bullets, 1):
+                md += f"{i}. {bullet}\n"
+        else:
+            md += "- Your resume is well-aligned with the job requirements\n"
+        
+        md += """
+
+---
+
+## Interview Preparation
+
+"""
+        
+        # Add interview questions if available
+        interview_questions = resume_suggestions.get("interview_questions", {})
+        if interview_questions:
+            if interview_questions.get("business"):
+                md += "### Business & Strategy Questions\n"
+                for q in interview_questions.get("business", []):
+                    md += f"- {q}\n"
+                md += "\n"
+            
+            if interview_questions.get("ml"):
+                md += "### Machine Learning Questions\n"
+                for q in interview_questions.get("ml", []):
+                    md += f"- {q}\n"
+                md += "\n"
+            
+            if interview_questions.get("system_design"):
+                md += "### System Design Questions\n"
+                for q in interview_questions.get("system_design", []):
+                    md += f"- {q}\n"
+                md += "\n"
+            
+            if interview_questions.get("mlops"):
+                md += "### MLOps & Deployment Questions\n"
+                for q in interview_questions.get("mlops", []):
+                    md += f"- {q}\n"
+                md += "\n"
+            
+            if interview_questions.get("behavioral"):
+                md += "### Behavioral Questions\n"
+                for q in interview_questions.get("behavioral", []):
+                    md += f"- {q}\n"
+                md += "\n"
+        
+        return md
+        md += "\n"
         
         md += """### Potential Improvements
 
@@ -330,3 +441,174 @@ By implementing the above recommendations, you can significantly improve your re
         logger.info(f"Markdown report generated successfully")
         
         return md
+
+
+class HTMLGenerator:
+    """
+    Generates HTML reports from Jinja2 template.
+    Renders CompanyFitReport data into HTML format using report_template.html.
+    """
+    
+    @staticmethod
+    def generate(
+        report_data: Dict[str, Any],
+        template_path: str = "report_template.html"
+    ) -> str:
+        """
+        Generate HTML report from Jinja2 template.
+        
+        Args:
+            report_data: Complete report data (from CompanyFitReport.model_dump())
+            template_path: Path to Jinja2 HTML template (relative to project root)
+            
+        Returns:
+            Rendered HTML string
+            
+        Raises:
+            FileNotFoundError: If template file not found
+            Exception: If template rendering fails
+        """
+        logger.info(f"Generating HTML report from template: {template_path}")
+        logger.info(f"Generating the HTML reports from data", report_data)
+        
+        try:
+            # Get absolute path to template
+            template_file = Path(template_path)
+            if not template_file.is_absolute():
+                # If relative, assume relative to project root
+                template_file = Path.cwd() / template_path
+            
+            if not template_file.exists():
+                raise FileNotFoundError(f"Template file not found: {template_file}")
+            
+            # Setup Jinja2 environment
+            template_dir = template_file.parent
+            template_name = template_file.name
+            
+            env = Environment(
+                loader=FileSystemLoader(str(template_dir)),
+                autoescape=select_autoescape(['html', 'xml'])
+            )
+            
+            # Load and render template
+            template = env.get_template(template_name)
+            
+            # Flatten nested structures for template access
+            flattened_data = HTMLGenerator._flatten_report_data(report_data)
+            
+            html = template.render(**flattened_data)
+            
+            logger.info(f"HTML report generated successfully ({len(html)} characters)")
+            return html
+        
+        except FileNotFoundError as e:
+            logger.error(f"Template file error: {e}")
+            raise
+        except Exception as e:
+            logger.error(f"Error generating HTML report: {e}", exc_info=True)
+            raise
+    
+    @staticmethod
+    def _flatten_report_data(report_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Flatten nested report data for Jinja2 template access.
+        
+        Converts nested structures like:
+        {
+          "company_evaluation": {
+            "metadata": {...},
+            "company_metrics": [...]
+          }
+        }
+        
+        To flat structure:
+        {
+          "company_name": "...",
+          "company_metrics": [...],
+          ...
+        }
+        
+        Args:
+            report_data: Nested report data
+            
+        Returns:
+            Flattened dictionary
+        """
+        flattened = {}
+        
+        # Add generated_date
+        flattened["generated_date"] = report_data.get("generated_date", "")
+        
+        # Flatten company_evaluation
+        company_eval = report_data.get("company_evaluation", {})
+        if company_eval:
+            metadata = company_eval.get("metadata", {})
+            flattened.update({
+                "company_name": metadata.get("company_name", ""),
+                "company_website": metadata.get("company_website", ""),
+                "industry": metadata.get("industry", ""),
+                "listing_status": metadata.get("listing_status", ""),
+                "headquarters": metadata.get("headquarters", ""),
+                "founded": metadata.get("founded", ""),
+                "countries": metadata.get("countries", ""),
+                "india_cities": metadata.get("india_cities", ""),
+                "role_applied": company_eval.get("role_applied", ""),
+                "overall_score": company_eval.get("overall_score", 0),
+                "company_metrics": company_eval.get("company_metrics", []),
+                "technology_stack": company_eval.get("technology_stack", []),
+            })
+        
+        # Flatten personal_fit
+        personal_fit = report_data.get("personal_fit", {})
+        if personal_fit:
+            flattened.update({
+                "personal_fit_score": personal_fit.get("personal_fit_score", 0),
+                "personal_fit_summary": f"Score: {personal_fit.get('personal_fit_score', 0)}/100",
+                "personal_fit_strengths": personal_fit.get("strengths_match", []),
+                "personal_fit_gaps": personal_fit.get("skill_gaps", []),
+            })
+        
+        # Flatten resume_suggestions
+        resume_sug = report_data.get("resume_suggestions", {})
+        if resume_sug:
+            flattened.update({
+                "resume_alignment_score": resume_sug.get("resume_alignment_score", 0),
+                "resume_gaps": resume_sug.get("resume_gaps", []),
+                "resume_recommendations": resume_sug.get("resume_recommendations", []),
+                "interview_questions": resume_sug.get("interview_questions", {
+                    "business": [],
+                    "ml": [],
+                    "system_design": [],
+                    "mlops": [],
+                    "behavioral": []
+                }),
+            })
+        
+        # Flatten recommendation
+        recommendation = report_data.get("recommendation", {})
+        if recommendation:
+            flattened.update({
+                "recommendation": {
+                    "decision": recommendation.get("decision", ""),
+                    "reason": recommendation.get("reason", ""),
+                }
+            })
+        
+        return flattened
+    
+    @staticmethod
+    def export_html(html_content: str, output_path: str) -> None:
+        """
+        Export HTML content to file.
+        
+        Args:
+            html_content: Rendered HTML string
+            output_path: Path where to save HTML file
+        """
+        logger.info(f"Exporting HTML report to: {output_path}")
+        
+        output_file = Path(output_path)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        output_file.write_text(html_content, encoding='utf-8')
+        
+        logger.info(f"HTML report exported successfully ({output_file.stat().st_size} bytes)")

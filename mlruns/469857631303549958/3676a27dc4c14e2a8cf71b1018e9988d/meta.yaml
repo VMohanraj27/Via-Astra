@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mohan/OneDrive/Documents/Personal Projects/Company
+  Assessment Framework/Code/mlruns/469857631303549958/3676a27dc4c14e2a8cf71b1018e9988d/artifacts
+end_time: 1773597198076
+entry_point_name: ''
+experiment_id: '469857631303549958'
+lifecycle_stage: active
+run_id: 3676a27dc4c14e2a8cf71b1018e9988d
+run_name: resume_optimization
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1773597164487
+status: 3
+tags: []
+user_id: mohan
